@@ -316,9 +316,11 @@ int io_seek(IOHANDLE io, int offset, int origin)
 		break;
 	case IOSEEK_END:
 		real_origin = SEEK_END;
+	default:
+		return -1;
 	}
 
-	return fseek((FILE*)io, offset, origin);
+	return fseek((FILE*)io, offset, real_origin);
 }
 
 long int io_tell(IOHANDLE io)

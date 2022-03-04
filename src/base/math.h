@@ -20,13 +20,6 @@ inline float sign(float f)
 	return f<0.0f?-1.0f:1.0f;
 }
 
-inline int round(float f)
-{
-	if(f > 0)
-		return (int)(f+0.5f);
-	return (int)(f-0.5f);
-}
-
 template<typename T, typename TB>
 inline T mix(const T a, const T b, TB amount)
 {
@@ -38,6 +31,17 @@ inline float frandom() { return rand()/(float)(RAND_MAX); }
 // float to fixed
 inline int f2fx(float v) { return (int)(v*(float)(1<<10)); }
 inline float fx2f(int v) { return v*(1.0f/(1<<10)); }
+
+inline int gcd(int a, int b)
+{
+	while(b != 0)
+	{
+		int c = a % b;
+		a = b;
+		b = c;
+	}
+	return a;
+}
 
 class fxp
 {

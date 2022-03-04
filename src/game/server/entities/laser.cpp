@@ -65,7 +65,7 @@ void CLaser::DoBounce()
 	}
 	
 	vec2 To = m_Pos + m_Dir * m_Energy;
-	vec2 OrgTo = To;
+	// vec2 OrgTo = To;
 	
 	if(GameServer()->Collision()->IntersectLine(m_Pos, To, 0x0, &To))
 	{
